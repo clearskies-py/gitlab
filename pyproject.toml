@@ -6,7 +6,11 @@ license = "MIT"
 readme = "./README.md"
 authors = [{name = "Tom Nijboer", email = "tom.nijboer@cimpress.com"}]
 requires-python = ">=3.11,<4.0"
-dependencies = ["clear-skies>=2.0.0,<3.0.0"]
+dependencies = [
+    "clear-skies>=2.0.0,<3.0.0",
+    "gql>=4.0.0",
+    "requests>=2.32.5",
+]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Programming Language :: Python :: 3",

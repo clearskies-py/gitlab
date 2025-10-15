@@ -24,13 +24,10 @@ if TYPE_CHECKING:
 class GitlabRestBackend(ApiBackend):
     """Backend for Gitlab.com."""
 
-    url = inject.ByName("gitlab_url", cache=True)
-    auth = inject.ByName("gitlab_auth", cache=False)
+    base_url = inject.ByName("gitlab_url", cache=True)
+    authentication = inject.ByName("gitlab_auth", cache=False)
     requests = inject.Requests()
     _auth_headers: dict[str, str] = {}
-
-    base_url = configs.String()
-    authentication = configs.Authentication()
 
     @parameters_to_properties
     def __init__(
@@ -47,13 +44,6 @@ class GitlabRestBackend(ApiBackend):
         """Setups the class."""
         self.finalize_and_validate_configuration()
         self.logger = logging.getLogger(__name__)
-
-    def configure(self) -> None:
-        if not self.base_url:
-            self.base_url = str(self.url)
-        if not self.authentication:
-            self.authentication = self.auth  # type: ignore[has-type]
-        self.logger.debug(f"Auth: {self.auth.__class__.__name__}")
 
     def count_method(self, query: Query) -> str:
         """Return the request method to use when making a request for a record count."""

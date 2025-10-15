@@ -1,5 +1,3 @@
-import clearskies
+from clearskies_gitlab import backends, defaults, exceptions, models
 
-from clearskies_gitlab import backends, models
-
-__all__ = ["backends", "models"]
+__all__ = ["backends", "models", "defaults", "exceptions"]

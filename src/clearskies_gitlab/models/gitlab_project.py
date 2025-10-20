@@ -4,7 +4,9 @@ from collections import OrderedDict
 from typing import Any
 
 from clearskies import Model
-from clearskies.columns import Boolean, Datetime, Integer, Json, Select, String
+from clearskies.columns import BelongsToId, BelongsToModel, Boolean, Datetime, Integer, Json, Select, String
+
+from clearskies_gitlab.models import gitlab_group, gitlab_namespace
 
 
 class GitlabProject(Model):
@@ -13,7 +15,11 @@ class GitlabProject(Model):
     id_column_name = "id"
 
     id = String()
-    group_id = String()
+    group_id = BelongsToId(gitlab_group.GitlabGroup)
+    group = BelongsToModel("group_id")
+    user_id = String()
+    namespace_id = BelongsToId(gitlab_namespace.GitlabNamespace)
+    namespace = BelongsToModel("namespace_id")
     description = String()
     description_html = String()
     default_branch = String()
@@ -43,7 +49,6 @@ class GitlabProject(Model):
     updated_at = Datetime()
     last_activity_at = Datetime()
     creator_id = Integer()
-    namespace = Json()
     import_url = String()
     import_type = String()
     import_status = String()

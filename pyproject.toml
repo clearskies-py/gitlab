@@ -7,7 +7,7 @@ readme = "./README.md"
 authors = [{name = "Tom Nijboer", email = "tom.nijboer@cimpress.com"}]
 requires-python = ">=3.11,<4.0"
 dependencies = [
-    "clear-skies>=2.0.0,<3.0.0",
+    "clear-skies",
     "gql>=4.0.0",
     "requests>=2.32.5",
 ]
@@ -68,6 +68,9 @@ testpaths = [
 pythonpath = [
   "app"
 ]
+
+[tool.uv.sources]
+clear-skies = { path = "../clearskies", editable = true }
 
 # This is the dedicated section for uv"s configuration
 [dependency-groups]

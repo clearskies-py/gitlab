@@ -16,30 +16,28 @@ from clearskies.columns import (
     String,
 )
 
-from clearskies_gitlab.models import gitlab_group, gitlab_rest_model
+from clearskies_gitlab.models import gitlab_namespace, gitlab_rest_model
 from clearskies_gitlab.models.rest import (
     gitlab_rest_group_access_token,
-    gitlab_rest_group_member_reference,
-    gitlab_rest_group_project,
     gitlab_rest_group_subgroup_reference,
     gitlab_rest_group_variable,
     gitlab_rest_project_reference,
 )
 
 
-class GitlabRestGroup(
+class GitlabRestNamespace(
     gitlab_rest_model.GitlabRestModel,
-    gitlab_group.GitlabGroup,
+    gitlab_namespace.GitlabNamespace,
 ):
-    """Model for groups."""
+    """Model for namespaces."""
 
     @classmethod
     def destination_name(cls: type[Self]) -> str:
         """Return the slug of the api endpoint for this model."""
-        return "groups"
+        return "namespaces"
 
     projects = HasMany(
-        gitlab_rest_group_project.GitlabRestGroupProject,
+        gitlab_rest_project_reference.GitlabRestProjectReference,
         foreign_column_name="group_id",
     )
     access_tokens = HasMany(
@@ -52,10 +50,6 @@ class GitlabRestGroup(
     )
     subgroups = HasMany(
         gitlab_rest_group_subgroup_reference.GitlabRestGroupSubgroupReference,
-        foreign_column_name="group_id",
-    )
-    members = HasMany(
-        gitlab_rest_group_member_reference.GitlabRestGroupMemberReference,
         foreign_column_name="group_id",
     )
     parent_id = BelongsToSelf()

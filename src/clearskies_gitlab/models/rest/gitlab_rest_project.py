@@ -3,10 +3,15 @@ from __future__ import annotations
 from collections import OrderedDict
 from typing import Any, Self
 
-from clearskies.columns import BelongsToId, BelongsToModel, Boolean, Datetime, HasMany, Integer, Select, String
+from clearskies.columns import BelongsToId, BelongsToModel, Boolean, Datetime, HasMany, Integer, Json, Select, String
 
+from clearskies_gitlab.backends.gitlab_rest_backend import GitlabRestBackend
 from clearskies_gitlab.models import gitlab_project, gitlab_rest_model
-from clearskies_gitlab.models.rest import gitlab_rest_group_reference, gitlab_rest_project_variable_refence
+from clearskies_gitlab.models.rest import (
+    gitlab_rest_group_reference,
+    gitlab_rest_namespace,
+    gitlab_rest_project_variable_refence,
+)
 
 
 class GitlabRestProject(
@@ -15,15 +20,22 @@ class GitlabRestProject(
 ):
     """Model for projects."""
 
+    backend = GitlabRestBackend(
+        api_to_model_map={
+            "namespace.id": ["namespace_id", "group_id"],
+        }
+    )
+
     @classmethod
     def destination_name(cls: type[Self]) -> str:
         """Return the slug of the api endpoint for this model."""
         return "projects"
 
-    group_id = BelongsToId(
-        gitlab_rest_group_reference.GitlabRestGroupReference,
-    )
+    group_id = BelongsToId(gitlab_rest_group_reference.GitlabRestGroupReference)
     group = BelongsToModel("group_id")
+
+    namespace_id = BelongsToId(gitlab_rest_namespace.GitlabRestNamespace)
+    namespace = BelongsToModel("namespace_id")
 
     variables = HasMany(
         gitlab_rest_project_variable_refence.GitlabRestProjectVariableReference,

@@ -10,6 +10,8 @@ from clearskies.columns import Boolean, Datetime, Integer, Json, String
 class GitlabGroup(Model):
     """Base model for groups."""
 
+    id_column_name = "id"
+
     id = String()
     web_url = String()
     name = String()

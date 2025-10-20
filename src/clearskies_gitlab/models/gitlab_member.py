@@ -10,6 +10,8 @@ from clearskies.columns import Datetime, Email, Integer, Json, String
 class GitlabMember(Model):
     """Base model for group or project members."""
 
+    id_column_name = "id"
+
     id = Integer()
     username = String()
     name = String()

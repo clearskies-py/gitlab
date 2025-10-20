@@ -5,6 +5,7 @@ from clearskies_gitlab.models.rest.gitlab_rest_advanced_search_blob import Gitla
 from clearskies_gitlab.models.rest.gitlab_rest_current_user import GitlabRestCurrentUser
 from clearskies_gitlab.models.rest.gitlab_rest_group import GitlabRestGroup
 from clearskies_gitlab.models.rest.gitlab_rest_group_access_token import GitlabRestGroupAccessToken
+from clearskies_gitlab.models.rest.gitlab_rest_group_project import GitlabRestGroupProject
 from clearskies_gitlab.models.rest.gitlab_rest_group_search import GitlabRestGroupSearch
 from clearskies_gitlab.models.rest.gitlab_rest_group_search_blob import GitlabRestGroupSearchBlob
 from clearskies_gitlab.models.rest.gitlab_rest_group_subgroup import GitlabRestGroupSubgroup
@@ -22,6 +23,7 @@ __all__ = [
     "GitlabRestCurrentUser",
     "GitlabRestGroup",
     "GitlabRestGroupAccessToken",
+    "GitlabRestGroupProject",
     "GitlabRestGroupSearch",
     "GitlabRestGroupSearchBlob",
     "GitlabRestGroupSubgroup",

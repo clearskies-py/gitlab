@@ -163,41 +163,17 @@ wheels = [
 
 [[package]]
 name = "clear-skies"
-version = "2.0.15"
-source = { editable = "../clearskies" }
+version = "2.0.16"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dateparser" },
     { name = "requests" },
     { name = "wrapt" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "akeyless", marker = "extra == 'secrets'", specifier = ">=4.0.0,<5.0.0" },
-    { name = "akeyless-cloud-id", marker = "extra == 'secrets'", specifier = ">=0.2.3,<0.3.0" },
-    { name = "dateparser", specifier = ">=1.1.8,<2.0.0" },
-    { name = "jwcrypto", marker = "extra == 'jwcrypto'", specifier = ">=1.5.6,<2.0.0" },
-    { name = "pymysql", marker = "extra == 'mysql'", specifier = ">=1.1.0,<2.0.0" },
-    { name = "requests", specifier = ">=2.31.0,<3.0.0" },
-    { name = "typing-extensions", marker = "python_full_version == '3.10.*'", specifier = ">=4.12.0,<5.0.0" },
-    { name = "wrapt", specifier = ">=1.16.0,<2.0.0" },
+sdist = { url = "https://files.pythonhosted.org/packages/24/d9/59fe96a3398172f8f86510009ec42b0606bacaee6c171473d62dcc565545/clear_skies-2.0.16.tar.gz", hash = "sha256:516a7a2f2afd0b45baf1724c0a4fdda2cd5e509f488fa5a858dc4b208254883f", size = 266953 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/db/ed/753f83466bfa88d850a500f75097d95f1919bcc89e5a2697eacc712cd4e2/clear_skies-2.0.16-py3-none-any.whl", hash = "sha256:bf96acfd7d90fecf0714ca1b48f32ab2a515480131ac376421728d6de42ad5e8", size = 323157 },
 ]
-provides-extras = ["secrets", "mysql", "jwcrypto"]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "black", specifier = ">=25.1.0" },
-    { name = "mypy", specifier = ">=1.16.1" },
-    { name = "pre-commit", specifier = ">=4.3.0" },
-    { name = "pytest", specifier = ">=8.4.1" },
-    { name = "pytest-cov", specifier = ">=6.2.1" },
-    { name = "ruff", specifier = ">=0.12.10" },
-    { name = "types-dateparser", specifier = ">=1.2.2.20250627" },
-    { name = "types-jwcrypto", specifier = ">=1.5.0.20250516" },
-    { name = "types-pymysql", specifier = ">=1.1.0.20250516" },
-    { name = "types-requests", specifier = ">=2.32.4" },
-]
-docs = [{ name = "clear-skies-doc-builder", specifier = ">=2.0.4" }]
 
 [[package]]
 name = "clear-skies-gitlab"
@@ -226,7 +202,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "clear-skies", editable = "../clearskies" },
+    { name = "clear-skies", specifier = ">=2.0.0" },
     { name = "gql", specifier = ">=4.0.0" },
     { name = "requests", specifier = ">=2.32.5" },
     { name = "types-requests", marker = "extra == 'dev'", specifier = ">=2.32.4" },

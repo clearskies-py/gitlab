@@ -1,9 +1,8 @@
 from __future__ import annotations
 
-from collections import OrderedDict
-from typing import TYPE_CHECKING, Any, Self
+from typing import Self
 
-from clearskies.columns import BelongsToId, BelongsToModel, String
+from clearskies.columns import String
 
 from clearskies_gitlab.models import gitlab_cicd_variable, gitlab_rest_model
 

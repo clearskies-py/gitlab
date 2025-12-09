@@ -1,16 +1,18 @@
 from __future__ import annotations
 
-from collections import OrderedDict
-from typing import Any, Self
+from typing import Self
 
-from clearskies.columns import BelongsToId, BelongsToModel, Boolean, Datetime, HasMany, Integer, Json, Select, String
+from clearskies.columns import BelongsToId, BelongsToModel, Boolean, Datetime, HasMany, HasOne, Integer, Select, String
 
 from clearskies_gitlab.backends.gitlab_rest_backend import GitlabRestBackend
 from clearskies_gitlab.models import gitlab_project, gitlab_rest_model
 from clearskies_gitlab.models.rest import (
     gitlab_rest_group_reference,
     gitlab_rest_namespace,
-    gitlab_rest_project_variable_refence,
+    gitlab_rest_project_approval_config_reference,
+    gitlab_rest_project_approval_rule_reference,
+    gitlab_rest_project_protected_branch_reference,
+    gitlab_rest_project_variable_reference,
 )
 
 
@@ -38,7 +40,22 @@ class GitlabRestProject(
     namespace = BelongsToModel("namespace_id")
 
     variables = HasMany(
-        gitlab_rest_project_variable_refence.GitlabRestProjectVariableReference,
+        gitlab_rest_project_variable_reference.GitlabRestProjectVariableReference,
+        foreign_column_name="project_id",
+    )
+
+    protected_branches = HasMany(
+        gitlab_rest_project_protected_branch_reference.GitlabRestProjectProtectedBranchReference,
+        foreign_column_name="project_id",
+    )
+
+    approval_config = HasOne(
+        gitlab_rest_project_approval_config_reference.GitlabRestProjectApprovalConfigReference,
+        foreign_column_name="project_id",
+    )
+
+    approval_rules = HasMany(
+        gitlab_rest_project_approval_rule_reference.GitlabRestProjectApprovalRuleReference,
         foreign_column_name="project_id",
     )
     ### Search params

@@ -1,8 +1,5 @@
 from __future__ import annotations
 
-from collections import OrderedDict
-from typing import Any
-
 from clearskies.columns import BelongsToId, BelongsToModel, Integer, String
 
 from clearskies_gitlab.models.rest import gitlab_rest_advanced_search, gitlab_rest_project

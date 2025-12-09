@@ -1,10 +1,7 @@
 from __future__ import annotations
 
-from collections import OrderedDict
-from typing import Any
-
 from clearskies import Model
-from clearskies.columns import Boolean, Datetime, Integer, Json, Select, String
+from clearskies.columns import Boolean, Datetime, Integer, Select, String
 
 
 class GitlabNamespace(Model):

@@ -1,12 +1,10 @@
 from __future__ import annotations
 
-from collections import OrderedDict
-from typing import Any, Self
+from typing import Self
 
-from clearskies.columns import BelongsToId, BelongsToModel, Boolean, Datetime, Integer, Json, String
+from clearskies.columns import Boolean, Datetime, Integer, Json, String
 
 from clearskies_gitlab.models import gitlab_rest_model
-from clearskies_gitlab.models.rest import gitlab_rest_group
 
 
 class GitlabRestGroupAccessToken(

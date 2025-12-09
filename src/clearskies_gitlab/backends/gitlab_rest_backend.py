@@ -1,23 +1,16 @@
 from __future__ import annotations
 
-import logging
 import urllib
-from collections.abc import Callable
-from typing import TYPE_CHECKING, Any, cast
+from typing import TYPE_CHECKING, Any
 
-import requests
-from clearskies import Column, Model, configs
+from clearskies import configs
 from clearskies.backends import ApiBackend
 from clearskies.decorators import parameters_to_properties
 from clearskies.di import inject
-from clearskies.functional import string
 from clearskies.query import Query
 from requests.structures import CaseInsensitiveDict
 
-from clearskies_gitlab.exceptions import gitlab_error
-
 if TYPE_CHECKING:
-    from clearskies import model
     from clearskies.authentication import Authentication
     from clearskies.query import Query
 
@@ -25,8 +18,8 @@ if TYPE_CHECKING:
 class GitlabRestBackend(ApiBackend):
     """Backend for Gitlab.com."""
 
-    base_url = inject.ByName("gitlab_url", cache=True)
-    authentication = inject.ByName("gitlab_auth", cache=False)
+    base_url = inject.ByName("gitlab_url", cache=True)  # type: ignore[assignment]
+    authentication = inject.ByName("gitlab_auth", cache=False)  # type: ignore[assignment]
     requests = inject.Requests()
     _auth_headers: dict[str, str] = {}
 
@@ -90,6 +83,7 @@ class GitlabRestBackend(ApiBackend):
     def conditions_to_request_parameters(
         self, query: Query, used_routing_parameters: list[str]
     ) -> tuple[str, dict[str, str], dict[str, Any]]:
+        """Convert query conditions to request parameters."""
         route_id = ""
 
         url_parameters = {}
@@ -111,7 +105,7 @@ class GitlabRestBackend(ApiBackend):
     #     self,
     #     next_page_data: dict[str, Any],
     #     query: Query,
-    #     response: requests.Response,  # type: ignore
+    #     response: requests.Response,
     # ) -> None:
     #     """
     #     Update the next_page_data dictionary with the appropriate data needed to fetch the next page of records.

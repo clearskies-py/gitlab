@@ -47,4 +47,5 @@ class GitlabParamMissingError(ValueError):
     """Error if param is missing."""
 
     def __init__(self, param_name: str, table_name: str) -> None:
+        """Create error with param and table name."""
         super().__init__(f"Must provide the {param_name} to add the member to when updating a {table_name}")

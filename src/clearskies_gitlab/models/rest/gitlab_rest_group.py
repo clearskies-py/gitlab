@@ -1,10 +1,8 @@
 from __future__ import annotations
 
-from collections import OrderedDict
-from typing import Any, Self
+from typing import Self
 
 from clearskies.columns import (
-    BelongsToId,
     BelongsToModel,
     BelongsToSelf,
     Boolean,
@@ -23,7 +21,6 @@ from clearskies_gitlab.models.rest import (
     gitlab_rest_group_project,
     gitlab_rest_group_subgroup_reference,
     gitlab_rest_group_variable,
-    gitlab_rest_project_reference,
 )
 
 

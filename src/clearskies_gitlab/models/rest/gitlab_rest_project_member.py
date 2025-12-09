@@ -7,18 +7,18 @@ from clearskies.columns import Boolean, Json, String
 from clearskies_gitlab.models import gitlab_member, gitlab_rest_model
 
 
-class GitlabRestGroupMember(
+class GitlabRestProjectMember(
     gitlab_rest_model.GitlabRestModel,
     gitlab_member.GitlabMember,
 ):
-    """Model for group members."""
+    """Model for project members."""
 
     @classmethod
     def destination_name(cls: type[Self]) -> str:
         """Return the slug of the api endpoint for this model."""
-        return "groups/:group_id/members"
+        return "projects/:project_id/members"
 
-    group_id = String()
+    project_id = String()
     query = String()
     user_ids = Json()
     skip_users = Json()

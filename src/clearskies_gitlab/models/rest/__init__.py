@@ -11,10 +11,15 @@ from clearskies_gitlab.models.rest.gitlab_rest_group_search_blob import GitlabRe
 from clearskies_gitlab.models.rest.gitlab_rest_group_subgroup import GitlabRestGroupSubgroup
 from clearskies_gitlab.models.rest.gitlab_rest_group_variable import GitlabRestGroupVariable
 from clearskies_gitlab.models.rest.gitlab_rest_project import GitlabRestProject
+from clearskies_gitlab.models.rest.gitlab_rest_project_approval_config import GitlabRestProjectApprovalConfig
+from clearskies_gitlab.models.rest.gitlab_rest_project_approval_rule import GitlabRestProjectApprovalRule
+from clearskies_gitlab.models.rest.gitlab_rest_project_member import GitlabRestProjectMember
+from clearskies_gitlab.models.rest.gitlab_rest_project_protected_branch import GitlabRestProjectProtectedBranch
 from clearskies_gitlab.models.rest.gitlab_rest_project_repository_commit import GitlabRestProjectRepositoryCommit
 from clearskies_gitlab.models.rest.gitlab_rest_project_repository_commit_diff import (
     GitlabRestProjectRepositoryCommitDiff,
 )
+from clearskies_gitlab.models.rest.gitlab_rest_project_repository_file import GitlabRestProjectRepositoryFile
 from clearskies_gitlab.models.rest.gitlab_rest_project_variable import GitlabRestProjectVariable
 
 __all__ = [
@@ -29,7 +34,12 @@ __all__ = [
     "GitlabRestGroupSubgroup",
     "GitlabRestGroupVariable",
     "GitlabRestProject",
+    "GitlabRestProjectApprovalConfig",
+    "GitlabRestProjectApprovalRule",
+    "GitlabRestProjectMember",
     "GitlabRestProjectRepositoryCommit",
     "GitlabRestProjectRepositoryCommitDiff",
+    "GitlabRestProjectRepositoryFile",
     "GitlabRestProjectVariable",
+    "GitlabRestProjectProtectedBranch",
 ]

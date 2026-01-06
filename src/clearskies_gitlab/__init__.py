@@ -1,3 +1,3 @@
-from clearskies_gitlab import backends, defaults, exceptions, models
+from clearskies_gitlab import defaults, exceptions, graphql, rest
 
-__all__ = ["backends", "models", "defaults", "exceptions"]
+__all__ = ["rest", "graphql", "defaults", "exceptions"]

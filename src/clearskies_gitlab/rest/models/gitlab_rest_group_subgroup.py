@@ -2,15 +2,19 @@ from __future__ import annotations
 
 from typing import Self
 
-from clearskies.columns import String
+from clearskies.columns import HasMany, HasManySelf, String
 
 from clearskies_gitlab.rest.models import (
-    gitlab_rest_group,
+    gitlab_rest_group_access_token_reference,
+    gitlab_rest_group_base,
+    gitlab_rest_group_member_reference,
+    gitlab_rest_group_project_reference,
+    gitlab_rest_group_variable_reference,
 )
 
 
 class GitlabRestGroupSubgroup(
-    gitlab_rest_group.GitlabRestGroup,
+    gitlab_rest_group_base.GitlabRestGroupBase,
 ):
     """Model for Subgroups."""
 
@@ -23,18 +27,25 @@ class GitlabRestGroupSubgroup(
 
     group_id = String()
 
-    # projects = HasMany(
-    #     gitlab_rest_project_reference.GitlabRestProjectReference,
-    #     foreign_column_name="group_id",
-    # )
-    # access_tokens = HasMany(
-    #     gitlab_rest_group_access_token.GitlabRestGroupAccessToken,
-    #     foreign_column_name="group_id",
-    # )
-    # variables = HasMany(
-    #     gitlab_rest_group_variable.GitlabRestGroupVariable,
-    #     foreign_column_name="group_id",
-    # )
+    projects = HasMany(
+        gitlab_rest_group_project_reference.GitlabRestGroupProjectReference,
+        foreign_column_name="group_id",
+    )
+    access_tokens = HasMany(
+        gitlab_rest_group_access_token_reference.GitlabRestGroupAccessTokenReference,
+        foreign_column_name="group_id",
+    )
+    variables = HasMany(
+        gitlab_rest_group_variable_reference.GitlabRestGroupVariableReference,
+        foreign_column_name="group_id",
+    )
+    subgroups = HasManySelf(
+        foreign_column_name="group_id",
+    )
+    members = HasMany(
+        gitlab_rest_group_member_reference.GitlabRestGroupMemberReference,
+        foreign_column_name="group_id",
+    )
     # parent_id = BelongsToSelf()
     # parent = BelongsToModel("parent_id")
     # ### Search params

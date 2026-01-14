@@ -78,7 +78,7 @@ def _read_and_sanitize_manifest(manifest_file: str) -> ManifestData:
 
     print("Sanitizing manifest file...")
     try:
-        with open(manifest_file) as f:
+        with open(manifest_file, "r") as f:
             data: list | dict = json.load(f)
         if not isinstance(data, list):
             print(
@@ -104,7 +104,7 @@ def _get_module_name_from_pyproject(pyproject_file: str) -> str | None:
     """Find the project name from a pyproject.toml file."""
     if not os.path.exists(pyproject_file):
         return None
-    with open(pyproject_file) as f:
+    with open(pyproject_file, "r") as f:
         for line in f:
             match = re.match(r'^\s*name\s*=\s*"(.*?)"', line)
             if match:
@@ -117,7 +117,7 @@ def _write_manifest(manifest_file: str, data: ManifestData):
     try:
         with open(manifest_file, "w") as f:
             json.dump(data, f, indent=2)
-    except OSError as e:
+    except IOError as e:
         print(f"ERROR: Could not write to manifest file: {e}", file=sys.stderr)
         sys.exit(1)
 

@@ -9,15 +9,6 @@
             ]
         },
         {
-            "title": "REST Base Models",
-            "source": "clearskies.Model",
-            "builder": "clearskies_doc_builder.builders.Module",
-            "classes": [
-                "clearskies_gitlab.rest.gitlab_cicd_variable.GitlabCICDVariable",
-                "clearskies_gitlab.rest.gitlab_member.GitlabMember"
-            ]
-        },
-        {
             "title": "REST Models",
             "source": "clearskies.Model",
             "builder": "clearskies_doc_builder.builders.Module",
@@ -43,6 +34,16 @@
                 "clearskies_gitlab.rest.models.gitlab_rest_project_repository_file.GitlabRestProjectRepositoryFile",
                 "clearskies_gitlab.rest.models.gitlab_rest_project_variable.GitlabRestProjectVariable"
             ]
+        },
+        {
+            "title": "REST Base Models",
+            "source": "clearskies.Model",
+            "builder": "clearskies_doc_builder.builders.Module",
+            "classes": [
+                "clearskies_gitlab.rest.gitlab_cicd_variable.GitlabCICDVariable",
+                "clearskies_gitlab.rest.gitlab_member.GitlabMember"
+            ],
+            "parent": "REST Models"
         },
         {
             "title": "Defaults",

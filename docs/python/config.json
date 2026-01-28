@@ -1,3 +1,78 @@
 {
-  "tree": []
+    "tree": [
+        {
+            "title": "REST Backends",
+            "source": "clearskies.backends.ApiBackend",
+            "builder": "clearskies_doc_builder.builders.Module",
+            "classes": [
+                "clearskies_gitlab.rest.backends.GitlabRestBackend"
+            ]
+        },
+        {
+            "title": "REST Base Models",
+            "source": "clearskies.Model",
+            "builder": "clearskies_doc_builder.builders.Module",
+            "classes": [
+                "clearskies_gitlab.rest.GitlabBranchRule",
+                "clearskies_gitlab.rest.GitlabCICDVariable",
+                "clearskies_gitlab.rest.GitlabMember"
+            ],
+            "parent": "REST Models"
+        },
+        {
+            "title": "REST Models",
+            "source": "clearskies.Model",
+            "builder": "clearskies_doc_builder.builders.Module",
+            "classes": [
+                "clearskies_gitlab.rest.models.GitlabRestAdvancedSearch",
+                "clearskies_gitlab.rest.models.GitlabRestAdvancedSearchBlob",
+                "clearskies_gitlab.rest.models.GitlabRestCurrentUser",
+                "clearskies_gitlab.rest.models.GitlabRestGroup",
+                "clearskies_gitlab.rest.models.GitlabRestGroupAccessToken",
+                "clearskies_gitlab.rest.models.GitlabRestGroupAccessTokenReference",
+                "clearskies_gitlab.rest.models.GitlabRestGroupBase",
+                "clearskies_gitlab.rest.models.GitlabRestGroupMember",
+                "clearskies_gitlab.rest.models.GitlabRestGroupMemberReference",
+                "clearskies_gitlab.rest.models.GitlabRestGroupProject",
+                "clearskies_gitlab.rest.models.GitlabRestGroupProjectReference",
+                "clearskies_gitlab.rest.models.GitlabRestGroupReference",
+                "clearskies_gitlab.rest.models.GitlabRestGroupSearch",
+                "clearskies_gitlab.rest.models.GitlabRestGroupSearchBlob",
+                "clearskies_gitlab.rest.models.GitlabRestGroupSubgroup",
+                "clearskies_gitlab.rest.models.GitlabRestGroupSubgroupReference",
+                "clearskies_gitlab.rest.models.GitlabRestGroupVariable",
+                "clearskies_gitlab.rest.models.GitlabRestGroupVariableReference",
+                "clearskies_gitlab.rest.models.GitlabRestNamespace",
+                "clearskies_gitlab.rest.models.GitlabRestProject",
+                "clearskies_gitlab.rest.models.GitlabRestProjectApprovalConfig",
+                "clearskies_gitlab.rest.models.GitlabRestProjectApprovalConfigReference",
+                "clearskies_gitlab.rest.models.GitlabRestProjectApprovalRule",
+                "clearskies_gitlab.rest.models.GitlabRestProjectApprovalRuleReference",
+                "clearskies_gitlab.rest.models.GitlabRestProjectMember",
+                "clearskies_gitlab.rest.models.GitlabRestProjectMemberReference",
+                "clearskies_gitlab.rest.models.GitlabRestProjectProtectedBranch",
+                "clearskies_gitlab.rest.models.GitlabRestProjectProtectedBranchReference",
+                "clearskies_gitlab.rest.models.GitlabRestProjectReference",
+                "clearskies_gitlab.rest.models.GitlabRestProjectRepositoryCommit",
+                "clearskies_gitlab.rest.models.GitlabRestProjectRepositoryCommitDiff",
+                "clearskies_gitlab.rest.models.GitlabRestProjectRepositoryContributor",
+                "clearskies_gitlab.rest.models.GitlabRestProjectRepositoryContributorReference",
+                "clearskies_gitlab.rest.models.GitlabRestProjectRepositoryFile",
+                "clearskies_gitlab.rest.models.GitlabRestProjectRepositoryFileRaw",
+                "clearskies_gitlab.rest.models.GitlabRestProjectRepositoryFileReference",
+                "clearskies_gitlab.rest.models.GitlabRestProjectVariable",
+                "clearskies_gitlab.rest.models.GitlabRestProjectVariableReference"
+            ]
+        },
+        {
+            "title": "Defaults",
+            "source": "clearskies.di.AdditionalConfigAutoImport",
+            "builder": "clearskies_doc_builder.builders.Module",
+            "classes": [
+                "clearskies_gitlab.defaults.GitlabDefaultAuth",
+                "clearskies_gitlab.defaults.GitlabDefaultHost",
+                "clearskies_gitlab.defaults.GitlabGraphqlClient"
+            ]
+        }
+    ]
 }

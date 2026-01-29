@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Self
 
 from clearskies import Model
-from clearskies.columns import BelongsToId, BelongsToModel, Boolean
+from clearskies.columns import BelongsToId, BelongsToModel, Boolean, Integer
 
 from clearskies_gitlab.rest.backends import GitlabRestBackend
 from clearskies_gitlab.rest.models import gitlab_rest_project_reference
@@ -103,3 +103,20 @@ class GitlabRestProjectApprovalConfig(
     a merge request.
     """
     require_reauthentication_to_approve = Boolean()
+
+    """
+    Whether to reset approvals from Code Owners if their files change.
+
+    When enabled, approvals from Code Owners are reset when files they
+    own are modified. Note: To use this field, reset_approvals_on_push
+    must be False.
+    """
+    selective_code_owner_removals = Boolean()
+
+    """
+    The number of required approvals before a merge request can merge.
+
+    Deprecated in GitLab 12.3. Use Approval Rules instead.
+    This field is still returned by the API for backwards compatibility.
+    """
+    approvals_before_merge = Integer()

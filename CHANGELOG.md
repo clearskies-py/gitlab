@@ -5,9 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.6] - 2026-01-29
+
+### Changed
+- Change order of base models
+- Update to latest dependencies
+
+### Fixed
+- Missing fiels on GitlabRestProjectApprovalConfig
+
 ## [2.0.5] - 2026-01-28
 
 ### Changed
+- Bump version to v2.0.5 by @github-actions[bot]
 - Update all classes to have documentation
 - Update to latest dependencies
 
@@ -52,6 +62,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## New Contributors
 * @github-actions[bot] made their first contribution
 * @ made their first contribution
+[2.0.6]: https://github.com/clearskies-py/gitlab/compare/v2.0.5..v2.0.6
 [2.0.5]: https://github.com/clearskies-py/gitlab/compare/v2.0.4..v2.0.5
 [2.0.4]: https://github.com/clearskies-py/gitlab/compare/v2.0.3..v2.0.4
 [2.0.3]: https://github.com/clearskies-py/gitlab/compare/v2.0.2..v2.0.3

@@ -3,10 +3,10 @@ from __future__ import annotations
 from typing import Self
 
 from clearskies import Model
-from clearskies.columns import BelongsToId, BelongsToModel, Boolean, Integer
+from clearskies.columns import BelongsToId, BelongsToModel, Boolean, HasMany, Integer, Json
 
 from clearskies_gitlab.rest.backends import GitlabRestBackend
-from clearskies_gitlab.rest.models import gitlab_rest_project_reference
+from clearskies_gitlab.rest.models import gitlab_rest_project_approval_rule, gitlab_rest_project_reference
 
 
 class GitlabRestProjectApprovalConfig(
@@ -69,9 +69,10 @@ class GitlabRestProjectApprovalConfig(
     """
     Whether users must enter their password to approve.
 
+    Deprecated in GitLab 16.9. Use require_reauthentication_to_approve instead.
     Adds an extra layer of security by requiring password confirmation.
     """
-    require_user_password_for_approval = Boolean()
+    require_password_to_approve = Boolean()
 
     """
     Whether to prevent overriding approvers per merge request.
@@ -120,3 +121,27 @@ class GitlabRestProjectApprovalConfig(
     This field is still returned by the API for backwards compatibility.
     """
     approvals_before_merge = Integer()
+
+    """
+    Approval rules associated with this project approval configuration.
+    """
+    approval_rules = HasMany(
+        gitlab_rest_project_approval_rule.GitlabRestProjectApprovalRule,
+        foreign_column_name="project_id",
+    )
+
+    """
+    List of approvers for this project.
+
+    Deprecated in GitLab 12.3. Always returns an empty array.
+    Use approval_rules instead.
+    """
+    approvers = Json()
+
+    """
+    List of approver groups for this project.
+
+    Deprecated in GitLab 12.3. Always returns an empty array.
+    Use approval_rules instead.
+    """
+    approver_groups = Json()

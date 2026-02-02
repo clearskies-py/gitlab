@@ -90,6 +90,13 @@ class GitlabRestBackend(ApiBackend):
     """
     pagination_parameter_name = configs.String(default="page")
 
+    """
+    The name of the limit parameter used for pagination.
+
+    GitLab uses `per_page` to specify the number of records per page.
+    """
+    limit_parameter_name = configs.String(default="per_page")
+
     @parameters_to_properties
     def __init__(
         self,

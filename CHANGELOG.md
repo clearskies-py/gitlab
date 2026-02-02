@@ -5,10 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.8] - 2026-02-02
+
+### Changed
+- Update to latest dependencies
+
+### Fixed
+- Limits
+
 ## [2.0.7] - 2026-01-29
 
 ### Added
 - Add relation from config -> rule
+
+### Changed
+- Bump version to v2.0.7 by @github-actions[bot]
 
 ## [2.0.6] - 2026-01-29
 
@@ -68,6 +79,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## New Contributors
 * @github-actions[bot] made their first contribution
 * @ made their first contribution
+[2.0.8]: https://github.com/clearskies-py/gitlab/compare/v2.0.7..v2.0.8
 [2.0.7]: https://github.com/clearskies-py/gitlab/compare/v2.0.6..v2.0.7
 [2.0.6]: https://github.com/clearskies-py/gitlab/compare/v2.0.5..v2.0.6
 [2.0.5]: https://github.com/clearskies-py/gitlab/compare/v2.0.4..v2.0.5

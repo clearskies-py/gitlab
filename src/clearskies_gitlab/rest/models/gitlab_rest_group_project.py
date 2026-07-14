@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from typing import Self
 
+from clearskies import columns
+
 from clearskies_gitlab.rest.models import gitlab_rest_project
 
 
@@ -40,3 +42,28 @@ class GitlabRestGroupProject(
     def destination_name(cls: type[Self]) -> str:
         """Return the slug of the api endpoint for this model."""
         return "groups/:group_id/projects"
+
+    ### Search params
+
+    """
+    Limit by project status.
+
+    When true, returns active projects. When false, returns projects
+    that are archived or marked for deletion.
+    """
+    active = columns.Boolean()
+
+    """
+    Include projects shared to this group.
+    """
+    with_shared = columns.Boolean()
+
+    """
+    Include projects in subgroups of this group.
+    """
+    include_subgroups = columns.Boolean()
+
+    """
+    Return only projects that have security report artifacts.
+    """
+    with_security_reports = columns.Boolean()

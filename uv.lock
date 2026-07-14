@@ -384,7 +384,7 @@ wheels = [
 
 [[package]]
 name = "clear-skies-gitlab"
-version = "2.0.11"
+version = "2.0.12"
 source = { editable = "." }
 dependencies = [
     { name = "clear-skies" },

@@ -5,10 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.12] - 2026-07-14
+
+### Added
+- Add search filters for gitlab group  projects
+- Add typing for model references
+
+### Changed
+- Bump version to v2.0.11
+
 ## [2.0.10] - 2026-02-10
 
 ### Added
 - Add flags for delete, create, update, query
+
+### Changed
+- Bump version to v2.0.10 by @github-actions[bot]
 
 ## [2.0.9] - 2026-02-04
 
@@ -90,6 +102,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## New Contributors
 * @github-actions[bot] made their first contribution
 * @ made their first contribution
+[2.0.12]: https://github.com/clearskies-py/gitlab/compare/v2.0.10..v2.0.12
 [2.0.10]: https://github.com/clearskies-py/gitlab/compare/v2.0.9..v2.0.10
 [2.0.9]: https://github.com/clearskies-py/gitlab/compare/v2.0.8..v2.0.9
 [2.0.8]: https://github.com/clearskies-py/gitlab/compare/v2.0.7..v2.0.8
